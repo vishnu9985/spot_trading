@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>About - Spot Trading</title>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="course.css">
+</head>
+<body>
+<header>
+  <div class="logo">SPOT TRADING</div>
+  <nav>
+    <ul id="navButtons">
+      <li><a href="st.html">Home</a></li>
+      <li><a href="course.html">Courses</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li id="signupBtn"><a href="signup.html" class="btn-primary" style="margin-left:1rem;">Sign Up</a></li>
+      <li id="signinBtn"><a href="signin.html" class="btn-primary" style="margin-left:0.5rem;">Sign In</a></li>
+      <li id="profileBtn" style="display:none;"><a href="profile.html" class="btn-primary" style="margin-left:0.5rem;">Profile</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="about">
+    <h2>About Spot Trading</h2>
+    <p>
+      At Spot Trading, we are committed to empowering individuals and businesses with the knowledge and tools they need to confidently navigate the world of stock and commodity markets. Our mission is to make financial learning accessible, practical, and actionable for traders at every level — from beginners looking to start their investment journey to seasoned investors aiming to sharpen their strategies.
+    </p>
+    <strong>What We Do</strong>
+    <ul>
+      <li>Comprehensive educational resources focused on spot trading</li>
+      <li>Courses on options, fundamentals, technicals, and more</li>
+      <li>Interactive lessons and real-world examples</li>
+    </ul>
+    <strong>Why Choose Spot Trading?</strong>
+    <ul>
+      <li>✅ Expert Guidance</li>
+      <li>✅ Structured Learning</li>
+      <li>✅ Practical Tools</li>
+      <li>✅ Trust and Transparency</li>
+    </ul>
+    <strong>Vision</strong>
+    <p>
+      We believe that financial literacy is a crucial step toward personal empowerment and wealth-building. Our goal is to demystify trading and investment, helping individuals make smarter, data-backed decisions that align with their goals.
+    </p>
+    <strong>Our Community</strong>
+    <p>
+      Join our growing community of learners and traders!
+    </p>
+  </section>
+</main>
+<footer>
+  © 2025 Spot Trading. All Rights Reserved.
+</footer>
+<script>
+  // Navigation logic
+  if (localStorage.getItem('signedIn') === 'true') {
+    document.getElementById('signupBtn').style.display = 'none';
+    document.getElementById('signinBtn').style.display = 'none';
+    document.getElementById('profileBtn').style.display = 'inline-block';
+  } else {
+    document.getElementById('signupBtn').style.display = 'inline-block';
+    document.getElementById('signinBtn').style.display = 'inline-block';
+    document.getElementById('profileBtn').style.display = 'none';
+  }
+</script>
+</body>
+</html>

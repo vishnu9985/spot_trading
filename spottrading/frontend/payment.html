@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Payment - Spot Trading</title>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="course.css">
+  <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+<header>
+  <div class="logo">SPOT TRADING</div>
+</header>
+
+<main>
+  <section class="payment">
+    <h2>Payment Options</h2>
+    <div id="courseDetails"></div>
+    <div style="margin: 2rem 0; padding: 1rem; background: #f9f9f9; border-radius: 8px;">
+      <strong>Pay via UPI</strong>
+      <p>UPI ID: <b>8522822852@ybl</b></p>
+      <label>Scan QR Code to Pay:</label><br>
+      <img id="upiQr" src="" alt="UPI QR Code" style="width:180px;height:180px;border:1px solid #ccc;" />
+      <p style="font-size:0.9rem;color:#555;">Scan with any UPI app to pay</p>
+    </div>
+    <button id="confirmPayment" class="btn-primary" style="margin-top:1rem;">I've Paid</button>
+<a href="st.html" class="btn-primary" style="margin-top:1rem;display:block;">Back to Home</a>
+  </section>
+</main>
+
+<footer>
+  © 2025 Spot Trading. All Rights Reserved.
+</footer>
+
+<script>
+  // Courses data
+  const courses = [
+    { id: 1, title: "Option Trading Course", price: 999 },
+    { id: 2, title: "Fundamental Analysis Course", price: 1499 },
+    { id: 3, title: "Technical Analysis Course", price: 1199 },
+    { id: 4, title: "Full Stock Market Course", price: 4999 },
+    { id: 5, title: "Swing Trading Course", price: 699 },
+    { id: 6, title: "Positional Trading Course", price: 699 },
+    { id: 7, title: "Qualitative Analysis Course", price: 699 },
+    { id: 8, title: "Quantitative Analysis Course", price: 699 }
+  ];
+
+  // Get courseId from URL
+  const params = new URLSearchParams(window.location.search);
+  const courseId = parseInt(params.get('courseId'));
+  const course = courses.find(c => c.id === courseId);
+
+  // Display course details and set QR code
+  const courseDetails = document.getElementById('courseDetails');
+  const upiQr = document.getElementById('upiQr');
+  if (course) {
+    courseDetails.innerHTML = `
+      <div>
+        <strong>Course:</strong> ${course.title}<br>
+        <strong>Amount:</strong> ₹${course.price.toFixed(2)}
+      </div>
+    `;
+    upiQr.src = `https://api.qrserver.com/v1/create-qr-code/?data=upi://pay?pa=8522822852@ybl&pn=SpotTrading&am=${course.price}&cu=INR`;
+  } else {
+    courseDetails.innerHTML = `<div>Course not found.</div>`;
+    upiQr.style.display = 'none';
+  }
+  // ...existing code...
+
+// Unlock course function
+function unlockCourse(courseId) {
+  let unlocked = JSON.parse(localStorage.getItem('unlockedCourses') || '[]');
+  if (!unlocked.includes(courseId)) {
+    unlocked.push(courseId);
+    localStorage.setItem('unlockedCourses', JSON.stringify(unlocked));
+  }
+}
+
+// Handle "I've Paid" button click
+document.getElementById('confirmPayment').addEventListener('click', function() {
+  unlockCourse(courseId);
+  alert('Payment successful! Your course is now unlocked.');
+  window.location.href = 'st.html';
+});
+</script>
+</body>
+</html>

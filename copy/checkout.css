@@ -1,0 +1,66 @@
+
+
+main {
+  max-width: 420px;
+  margin: 3rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2rem 2rem 1.5rem 2rem;
+}
+
+.checkout h2 {
+  text-align: center;
+  color: #1a237e;
+  margin-bottom: 1.5rem;
+}
+
+#courseDetails {
+  background: #e3eafc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #222;
+  box-shadow: 0 2px 8px rgba(26,35,126,0.05);
+}
+
+form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: #1a237e;
+}
+
+form input {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #bfc8e2;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+form input:focus {
+  border-color: #1a237e;
+  outline: none;
+}
+
+.btn-primary {
+  width: 100%;
+  background: linear-gradient(90deg, #1a237e 60%, #3949ab 100%);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(26,35,126,0.08);
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #3949ab 60%, #1a237e 100%);
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Profile - Spot Trading</title>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="course.css">
+</head>
+<body>
+<header>
+  <div class="logo">SPOT TRADING</div>
+  <nav>
+    <ul id="navButtons">
+      <li><a href="st.html">Home</a></li>
+      <li><a href="course.html">Courses</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li id="signupBtn"><a href="signup.html" class="btn-primary" style="margin-left:1rem;">Sign Up</a></li>
+      <li id="signinBtn"><a href="signin.html" class="btn-primary" style="margin-left:0.5rem;">Sign In</a></li>
+      <li id="profileBtn" style="display:none;"><a href="profile.html" class="btn-primary" style="margin-left:0.5rem;">Profile</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="checkout">
+    <h2>Your Profile</h2>
+    <p>Welcome! You are signed in.</p>
+    <button class="btn-primary" onclick="logout()">Log Out</button>
+  </section>
+</main>
+<footer>
+  © 2025 Spot Trading. All Rights Reserved.
+</footer>
+<script>
+  // Navigation logic
+  if (localStorage.getItem('signedIn') === 'true') {
+    document.getElementById('signupBtn').style.display = 'none';
+    document.getElementById('signinBtn').style.display = 'none';
+    document.getElementById('profileBtn').style.display = 'inline-block';
+  } else {
+    document.getElementById('signupBtn').style.display = 'inline-block';
+    document.getElementById('signinBtn').style.display = 'inline-block';
+    document.getElementById('profileBtn').style.display = 'none';
+  }
+  function logout() {
+    localStorage.setItem('signedIn', 'false');
+    window.location.href = 'st.html';
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+/* Reset & basics */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: #007bff;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    header {
+      background: url('https://img.freepik.com/premium-photo/black-white-stock-market-trading-digital-graph_250469-12893.jpg?w=360');
+      background-color: #343a40;
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav ul li {
+      font-weight: 600;
+    }
+    nav ul li a {
+      color: white;
+    }
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+     /* Footer */
+    footer {
+      background: #343a40;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    /* Responsive Nav */
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+    }

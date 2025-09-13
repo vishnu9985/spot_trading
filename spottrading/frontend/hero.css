@@ -1,0 +1,33 @@
+/* Hero Section */
+    .hero {
+      background: url('https://i.pinimg.com/originals/6c/74/1c/6c741c60bf84723ea1184eaf5bb19c59.jpg') no-repeat center/cover;
+      color: white;
+      padding: 6rem 2rem;
+      text-align: center;
+      border-radius: 8px;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    }
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+    .btn-primary {
+      background-color: #0780fa;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+    }
