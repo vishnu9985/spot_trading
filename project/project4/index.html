@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <section>
+        <h2>Weather Info Fetch</h2>
+        <input type="text" id="cityInput" placeholder="Enter city name">
+        <button id="fetchBtn">Get Weather</button>
+        <div id="weather"></div>
+    </section>
+    
+    <script>
+        $(document).ready(function() {
+                 
+            const coords = { 
+                 "bangalore": { lat: 12.97, lon: 77.59 },
+                 "mumbai": { lat: 19.07, lon: 72.87 },
+                 "delhi": { lat: 28.70, lon: 77.10 },
+                 "kolkata": { lat: 22.57, lon: 88.36 },
+                 "chennai": { lat: 13.08, lon: 80.27 },
+                 "hyderabad": { lat: 17.38, lon: 78.47 },
+                 "anantapur": { lat: 14.68, lon: 77.60 },
+                 "tadipatri": { lat: 14.23, lon: 77.49 },
+                 "kadiri": { lat: 14.13, lon: 78.17 },
+                 "london": { lat: 51.50, lon: -0.12 },
+                 "newyork": { lat: 40.71, lon: -74.00 }
+            };
+            let url = "https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&current_weather=true";
+            
+            $('#fetchBtn').click(function(){
+                let city = $('#cityInput').val().toLowerCase();
+                if(coords[city]){
+                    url = url.replace("${coords.lat}", coords[city].lat).replace("${coords.lon}", coords[city].lon);
+                    $.get(url, function(data){
+                        $('#weather').html("Temperature: " + data.current_weather.temperature + "°C<br>Windspeed: " + data.current_weather.windspeed + " km/h<br>Wind Direction: " + data.current_weather.winddirection + "°");
+                    });
+                } else {
+                    $('#weather').html("City not found in database.");           
+                }
+            });
+        });
+
+
+    </script>
+</body>
+</html>
