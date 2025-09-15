@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Editable To-Do List</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>My To-Do List</h2>
+    <ul id="todoList">
+        <li>Buy groceries</li>
+        <li>Call mom</li>
+        <li>Finish assignment</li>
+    </ul>
+
+    <script>
+        $(document).ready(function() {
+            $('#todoList').on('dblclick', 'li', function() {
+                let currentText = $(this).text();
+                let input = $('<input type="text">').val(currentText);
+                $(this).html(input);
+                input.focus();
+                input.on('keydown', function(e) {
+                    if (e.key === 'Enter') {
+                        let updatedText = $(this).val().trim();
+                        if (updatedText === '') {
+                            updatedText = 'Untitled task';
+                        }
+                        $(this).parent().text(updatedText);
+                    }
+                });
+                input.on('blur', function() {
+                    let updatedText = $(this).val().trim();
+                    if (updatedText === '') {
+                        updatedText = 'Untitled task';
+                    }
+                    $(this).parent().text(updatedText);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
